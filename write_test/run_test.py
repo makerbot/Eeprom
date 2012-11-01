@@ -10,7 +10,7 @@ port = '/dev/tty.usbmodemfa131'
 
 s3g = makerbot_driver.s3g.from_filename(port)
 
-num_cycles = 100
+num_cycles = 10
 eeprom_length = 4000
 
 name = 'write_test_eeprom.hex'
@@ -28,4 +28,4 @@ for i in range(num_cycles):
     subprocess.check_call(['git', 'add', name])
 
     print "Committing File to repo"
-    subprocess.check_call(['git', 'commit', '-m', 'Running Write Test.  Iteration: %i' % (i))
+    subprocess.check_call(['git', 'commit', '-m', 'Running Write Test.  Iteration: %i' % (i)])
