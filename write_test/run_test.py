@@ -16,7 +16,8 @@ eeprom_length = 4000
 name = 'write_test_eeprom.hex'
 
 for i in range(num_cycles):
-    for j in range(eeprom_length, 10):
+    for j in range(0, eeprom_length, 10):
+        print "Writing eeprom values"
         val = j % 256
         packed_val = struct.pack('<B', val)
         s3g.write_to_EEPROM(j, packed_val)
