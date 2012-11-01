@@ -28,4 +28,7 @@ for i in range(num_cycles):
     subprocess.check_call(['git', 'add', name])
 
     print "Committing File to repo"
-    subprocess.check_call(['git', 'commit', '-m', 'Running Write Test.  Iteration: %i' % (i)])
+    try:
+        subprocess.check_call(['git', 'commit', '-m', 'Running Write Test.  Iteration: %i' % (i)])
+    except subprocess.CalledProcessError as e:
+        print "Nothing to commit, yay!"
