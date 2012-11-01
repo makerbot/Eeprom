@@ -22,7 +22,7 @@ for i in range(num_cycles):
         s3g.write_to_EEPROM(j, packed_val)
 
         print "Pulling the hex file"
-        subprocess.check_call(['avrdude', '-c stk500b1', '-p m1280', '-P %s' % (port), '-b 57600', '-U eeprom:r:%s:i' % (name)])
+        subprocess.check_call(['avrdude', '-cstk500b1', '-pm1280', '-P%s' % (port), '-b57600', '-Ueeprom:r:%s:i' % (name)])
 
         print "Adding File to repo"
         subprocess.check_call(['git', 'add', name])
