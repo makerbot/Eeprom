@@ -21,11 +21,11 @@ for i in range(num_cycles):
         packed_val = struct.pack('<B', val)
         s3g.write_to_EEPROM(j, packed_val)
 
-        print "Pulling the hex file"
-        subprocess.check_call(['avrdude', '-cstk500b1', '-pm1280', '-P%s' % (port), '-b57600', '-Ueeprom:r:%s:i' % (name)])
+    print "Pulling the hex file"
+    subprocess.check_call(['avrdude', '-cstk500b1', '-pm1280', '-P%s' % (port), '-b57600', '-Ueeprom:r:%s:i' % (name)])
 
-        print "Adding File to repo"
-        subprocess.check_call(['git', 'add', name])
- 
-        print "Committing File to repo"
-        subprocess.check_call(['git', 'commit', '-m', 'Running Write Test.  Iteration: %i' % (i/10))
+    print "Adding File to repo"
+    subprocess.check_call(['git', 'add', name])
+
+    print "Committing File to repo"
+    subprocess.check_call(['git', 'commit', '-m', 'Running Write Test.  Iteration: %i' % (i))
